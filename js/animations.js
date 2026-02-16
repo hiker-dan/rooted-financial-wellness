@@ -1,88 +1,53 @@
 /*
- * Scroll Animations
+ * Scroll Animations (Progressive Enhancement)
  *
- * Handles fade-in animations for elements as they scroll into view
- * Uses Intersection Observer for performance
+ * Content is ALWAYS visible by default.
+ * This script adds a .js-ready class to <html> to signal that
+ * animations are set up, only THEN do elements hide and fade in.
+ * If this script fails for any reason, all content remains visible.
  */
 
-// ============================================
-// FADE-IN ON SCROLL
-// ============================================
-
 document.addEventListener('DOMContentLoaded', function() {
-  // Select all elements with .animate-on-scroll class
-  const animateElements = document.querySelectorAll('.animate-on-scroll');
+  // Respect user's motion preferences
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (prefersReducedMotion.matches) {
+    // Don't add .js-ready, so all content stays fully visible
+    return;
+  }
 
-  // Check if there are elements to animate
+  // Check for IntersectionObserver support
+  if (!('IntersectionObserver' in window)) {
+    // Old browser - keep content visible
+    return;
+  }
+
+  // Select all elements with .animate-on-scroll class
+  var animateElements = document.querySelectorAll('.animate-on-scroll');
   if (animateElements.length === 0) return;
 
-  // Intersection Observer options
-  const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of element is visible
-    rootMargin: '0px 0px -50px 0px' // Start animation slightly before element enters viewport
-  };
+  // Signal to CSS that animations are ready
+  // This is what allows .animate-on-scroll elements to start hidden
+  document.documentElement.classList.add('js-ready');
 
   // Create the Intersection Observer
-  const observer = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        // Add fade-in class when element is visible
-        entry.target.classList.add('fade-in');
-
-        // Optional: Stop observing after animation (performance optimization)
-        // Comment out this line if you want animations to repeat on scroll up
+        // Add visible class to trigger the CSS transition
+        entry.target.classList.add('visible');
+        // Stop watching this element
         observer.unobserve(entry.target);
       }
     });
-  }, observerOptions);
-
-  // Observe all animate-on-scroll elements
-  animateElements.forEach(element => {
-    observer.observe(element);
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -30px 0px'
   });
-});
 
-// ============================================
-// STAGGERED ANIMATION (Optional Enhancement)
-// ============================================
-
-/*
- * If you want sequential animations for grouped elements,
- * you can add delay classes like this:
- */
-
-document.addEventListener('DOMContentLoaded', function() {
-  const animateGroups = document.querySelectorAll('.animate-group');
-
-  animateGroups.forEach(group => {
-    const children = group.querySelectorAll('.animate-on-scroll');
-
-    children.forEach((child, index) => {
-      // Add incremental delay to each child
-      child.style.transitionDelay = `${index * 100}ms`;
+  // Small delay to let the browser paint first, then observe
+  requestAnimationFrame(function() {
+    animateElements.forEach(function(element) {
+      observer.observe(element);
     });
   });
-});
-
-// ============================================
-// REDUCED MOTION SUPPORT
-// ============================================
-
-/*
- * Respect user's motion preferences
- * If user has "prefers-reduced-motion" enabled,
- * disable all animations
- */
-
-document.addEventListener('DOMContentLoaded', function() {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  if (prefersReducedMotion.matches) {
-    // Remove animation classes
-    const animateElements = document.querySelectorAll('.animate-on-scroll');
-    animateElements.forEach(element => {
-      element.classList.remove('animate-on-scroll');
-      element.style.opacity = '1';
-    });
-  }
 });
