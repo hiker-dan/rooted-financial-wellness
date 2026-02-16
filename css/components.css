@@ -162,8 +162,7 @@
   background-color: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
-  border: var(--border-width) solid var(--color-charcoal);
-  opacity: 0.1;
+  border: var(--border-width) solid rgba(58, 58, 58, 0.15);
   transition: all var(--transition-base);
   height: 100%;
   display: flex;
@@ -181,8 +180,7 @@
 .card-header {
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-sm);
-  border-bottom: var(--border-width) solid var(--color-charcoal);
-  opacity: 0.1;
+  border-bottom: var(--border-width) solid rgba(58, 58, 58, 0.1);
 }
 
 /*
@@ -213,8 +211,7 @@
 .card-footer {
   margin-top: var(--space-md);
   padding-top: var(--space-sm);
-  border-top: var(--border-width) solid var(--color-charcoal);
-  opacity: 0.1;
+  border-top: var(--border-width) solid rgba(58, 58, 58, 0.1);
 }
 
 /* ============================================
@@ -264,8 +261,7 @@ textarea {
   font-size: var(--text-base);
   color: var(--color-charcoal);
   background-color: var(--color-white);
-  border: var(--border-width-thick) solid var(--color-charcoal);
-  opacity: 0.2;
+  border: var(--border-width-thick) solid rgba(58, 58, 58, 0.25);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
 }
