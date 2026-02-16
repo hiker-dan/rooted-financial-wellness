@@ -1,0 +1,368 @@
+/*
+ * Homepage Specific Styles
+ *
+ * Styles for the hero section, philosophy intro,
+ * trust builders, and CTA sections on the homepage
+ */
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-white) 100%);
+  padding: var(--space-xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+.hero-content {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    text-align: left;
+  }
+}
+
+.hero-title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-tight);
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+/*
+ * Highlighted text within hero title
+ */
+.hero-title .highlight {
+  color: var(--color-sage);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  margin-bottom: var(--space-lg);
+  line-height: var(--leading-relaxed);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/*
+ * Hero CTA buttons
+ */
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .hero-cta {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-cta {
+    justify-content: flex-start;
+  }
+}
+
+.hero-cta .btn {
+  min-width: 200px;
+}
+
+/*
+ * Decorative background element (optional)
+ */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(135, 168, 120, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   PHILOSOPHY SECTION
+   ============================================ */
+
+.philosophy-section {
+  background-color: var(--color-white);
+  padding: var(--space-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .philosophy-section {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+.philosophy-content {
+  max-width: var(--container-md);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.philosophy-title {
+  font-size: var(--text-2xl);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .philosophy-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+.philosophy-intro {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-charcoal);
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+}
+
+/*
+ * Philosophy pillars grid
+ */
+.philosophy-pillars {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .philosophy-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pillar {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.pillar-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.pillar-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-sage);
+  margin-bottom: var(--space-sm);
+}
+
+.pillar-description {
+  font-size: var(--text-base);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   TRUST BUILDERS SECTION
+   ============================================ */
+
+.trust-section {
+  background-color: var(--color-cream);
+  padding: var(--space-xl) 0;
+}
+
+@media (min-width: 768px) {
+  .trust-section {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+.trust-content {
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: var(--text-2xl);
+  color: var(--color-charcoal);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+/*
+ * Credentials cards
+ */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .credentials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.credential-card {
+  background-color: var(--color-white);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.credential-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.credential-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+.credential-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-sage);
+  margin-bottom: var(--space-sm);
+}
+
+.credential-description {
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+}
+
+/* ============================================
+   FINAL CTA SECTION
+   ============================================ */
+
+.cta-section {
+  background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-purple) 100%);
+  padding: var(--space-xl) 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cta-section {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+.cta-content {
+  max-width: var(--container-md);
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: var(--text-2xl);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+.cta-description {
+  font-size: var(--text-lg);
+  color: var(--color-white);
+  opacity: 0.9;
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+  }
+}
+
+.cta-buttons .btn {
+  min-width: 200px;
+}
+
+/* White button on colored background */
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-sage);
+  border-color: var(--color-white);
+}
+
+.btn-white:hover {
+  background-color: var(--color-cream);
+  border-color: var(--color-cream);
+  transform: translateY(-2px);
+}
+
+/* Outline button on colored background */
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-sage);
+  transform: translateY(-2px);
+}

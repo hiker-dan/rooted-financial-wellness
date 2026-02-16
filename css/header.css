@@ -1,0 +1,291 @@
+/*
+ * Header & Navigation Styles
+ *
+ * Styles for the site header, logo, and navigation menu
+ * Includes desktop horizontal nav and mobile hamburger menu
+ */
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+.site-header {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  transition: box-shadow var(--transition-base);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-sm);
+  padding-bottom: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .header-container {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+
+.site-logo {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-charcoal);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.2;
+  transition: color var(--transition-fast);
+}
+
+.site-logo:hover {
+  color: var(--color-sage);
+  text-decoration: none;
+}
+
+.logo-main {
+  font-size: var(--text-xl);
+  color: var(--color-sage);
+}
+
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-charcoal);
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .site-logo {
+    font-size: var(--text-xl);
+  }
+
+  .logo-main {
+    font-size: var(--text-2xl);
+  }
+
+  .logo-sub {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ============================================
+   NAVIGATION - DESKTOP
+   ============================================ */
+
+.nav-menu {
+  display: none; /* Hidden on mobile by default */
+}
+
+@media (min-width: 768px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+  }
+}
+
+.nav-menu ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-charcoal);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: var(--color-sage);
+  text-decoration: none;
+}
+
+/*
+ * Active/current page indicator
+ */
+.nav-menu a.active {
+  color: var(--color-sage);
+}
+
+.nav-menu a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-sage);
+}
+
+/*
+ * CTA button in navigation
+ */
+.nav-cta {
+  margin-left: var(--space-sm);
+}
+
+/* ============================================
+   MOBILE MENU TOGGLE
+   ============================================ */
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: var(--z-fixed);
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none; /* Hide on desktop */
+  }
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 4px;
+}
+
+/*
+ * Hamburger icon bars
+ */
+.hamburger {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-charcoal);
+  border-radius: 2px;
+  transition: all var(--transition-base);
+  position: relative;
+  transform-origin: center;
+}
+
+/*
+ * Animate to X when menu is open
+ */
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* ============================================
+   NAVIGATION - MOBILE MENU
+   ============================================ */
+
+@media (max-width: 767px) {
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-cream);
+    z-index: var(--z-modal);
+    padding: var(--space-xl) var(--space-md);
+    overflow-y: auto;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    font-size: var(--text-xl);
+    display: block;
+    padding: var(--space-sm);
+  }
+
+  .nav-menu a.active::after {
+    display: none; /* Remove underline on mobile */
+  }
+
+  .nav-cta {
+    margin-left: 0;
+    margin-top: var(--space-md);
+    width: 100%;
+  }
+
+  .nav-cta .btn {
+    width: 100%;
+  }
+}
+
+/*
+ * Prevent scrolling when mobile menu is open
+ */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+/*
+ * Skip link (keyboard navigation)
+ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-sm);
+  background-color: var(--color-sage);
+  color: var(--color-white);
+  padding: var(--space-xs) var(--space-sm);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  z-index: var(--z-tooltip);
+  font-weight: var(--font-weight-semibold);
+}
+
+.skip-link:focus {
+  top: var(--space-sm);
+}
