@@ -294,7 +294,7 @@
 /* (Trust line removed) */
 
 /* ============================================
-   HERO VISUAL (Floating cards + plant illustration)
+   HERO VISUAL
    ============================================ */
 
 .hero-visual {
@@ -309,93 +309,112 @@
   }
 }
 
-/* Tree SVG */
-.hero-tree {
+/* Soft gradient orbs for depth */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-orb-1 {
+  width: 300px;
+  height: 300px;
+  top: 2%;
+  right: 8%;
+  background: radial-gradient(circle, rgba(135, 168, 120, 0.12) 0%, transparent 70%);
+}
+
+.hero-orb-2 {
+  width: 220px;
+  height: 220px;
+  bottom: 12%;
+  left: 2%;
+  background: radial-gradient(circle, rgba(157, 139, 166, 0.10) 0%, transparent 70%);
+}
+
+.hero-orb-3 {
+  width: 180px;
+  height: 180px;
+  top: 38%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+}
+
+/* Central botanical line art */
+.hero-botanical {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 400px;
-  z-index: 1;
+  width: 240px;
+  height: 340px;
+  z-index: 0;
 }
 
-/* Floating cards as roots */
+/* Floating value cards */
 .hero-card {
   position: absolute;
   background: var(--color-white);
   border-radius: var(--radius-lg);
   padding: var(--space-sm) var(--space-md);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
   display: flex;
   align-items: center;
   gap: var(--space-sm);
   font-size: var(--text-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-charcoal);
-  animation: rootFloat 6s ease-in-out infinite;
   z-index: 2;
-  border-top: none;
-  border-left: none;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  animation: cardFloat 6s ease-in-out infinite;
 }
 
 .hero-card-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 
-/* Card 1: Emotion-First - left root */
+/* Card 1: Emotion-First — top right */
 .hero-card-1 {
-  bottom: 22%;
-  left: -5%;
+  top: 8%;
+  right: 2%;
+  border-left-color: var(--color-sage);
   animation-delay: 0s;
-  border-bottom: 3px solid var(--color-sage);
 }
 
 .hero-card-1 .hero-card-icon {
   color: var(--color-sage);
 }
 
-/* Card 2: Your Budget, Your Values - center root */
+/* Card 2: Budget/Values — center left */
 .hero-card-2 {
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 42%;
+  left: -2%;
+  border-left-color: var(--color-gold);
   animation-delay: -2s;
-  border-bottom: 3px solid var(--color-gold);
 }
 
 .hero-card-2 .hero-card-icon {
   color: var(--color-gold);
 }
 
-/* Card 3: Safe & Judgment-Free - right root */
+/* Card 3: Safe Space — bottom right */
 .hero-card-3 {
-  bottom: 22%;
-  right: -5%;
+  bottom: 12%;
+  right: 10%;
+  border-left-color: var(--color-purple);
   animation-delay: -4s;
-  border-bottom: 3px solid var(--color-purple);
 }
 
 .hero-card-3 .hero-card-icon {
   color: var(--color-purple);
 }
 
-@keyframes rootFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
-/* Override transform for centered card */
-.hero-card-2 {
-  animation: rootFloatCenter 6s ease-in-out infinite;
-  animation-delay: -2s;
-}
-
-@keyframes rootFloatCenter {
-  0%, 100% { transform: translateX(-50%) translateY(0px); }
-  50% { transform: translateX(-50%) translateY(-8px); }
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* ============================================

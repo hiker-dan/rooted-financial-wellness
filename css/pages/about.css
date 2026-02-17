@@ -245,6 +245,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-md);
+  align-items: start;
 }
 
 @media (min-width: 640px) {
