@@ -117,6 +117,7 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-charcoal);
   text-decoration: none;
+  white-space: nowrap;
   transition: color var(--transition-fast);
   position: relative;
 }

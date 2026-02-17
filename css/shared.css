@@ -99,6 +99,7 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: var(--leading-relaxed);
+  text-wrap: balance;
 }
 
 /* ============================================
@@ -256,6 +257,7 @@
   color: rgba(255, 255, 255, 0.9);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-lg);
+  text-wrap: balance;
 }
 
 .cta-buttons {

@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: var(--leading-tight);
   color: var(--color-charcoal);
   margin-bottom: var(--space-md);
+  text-wrap: balance;
 }
 
 h1 {
@@ -56,6 +57,7 @@ h5, h6 {
 /* Paragraphs */
 p {
   margin-bottom: var(--space-sm);
+  text-wrap: pretty;
 }
 
 p:last-child {
@@ -549,6 +551,7 @@ blockquote {
   font-style: italic;
   color: var(--color-charcoal);
   opacity: 0.9;
+  text-wrap: balance;
 }
 
 blockquote p {

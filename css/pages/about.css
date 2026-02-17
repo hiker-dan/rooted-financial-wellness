@@ -31,7 +31,13 @@
   }
 }
 
-/* Portrait photo */
+/* Photo column */
+.about-photos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
 .about-portrait {
   width: 100%;
   border-radius: var(--radius-xl);
@@ -39,11 +45,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-@media (min-width: 768px) {
-  .about-photo {
-    position: sticky;
-    top: calc(var(--space-xl) + 80px);
-  }
+/* Placeholder styling — remove this class when real photos are added */
+.about-portrait-placeholder {
+  box-shadow: none;
+  border: 2px dashed rgba(135, 168, 120, 0.3);
 }
 
 /* Story text */

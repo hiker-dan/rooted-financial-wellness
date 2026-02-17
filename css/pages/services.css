@@ -3,6 +3,106 @@
  */
 
 /* ============================================
+   HOW IT WORKS / PROCESS SECTION
+   ============================================ */
+
+.process-section {
+  background: linear-gradient(160deg, var(--color-sage) 0%, #6B9F7F 50%, var(--color-purple) 100%);
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
+  position: relative;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .process-section {
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
+  }
+}
+
+.process-header {
+  margin-bottom: var(--space-xl);
+}
+
+.section-subheading {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-subheading-light {
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+}
+
+.process-steps {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.process-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  padding: var(--space-md) var(--space-lg);
+  width: 100%;
+  transition: all var(--transition-base);
+}
+
+.process-step:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  color: var(--color-sage);
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+}
+
+.step-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+}
+
+.step-description {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--leading-relaxed);
+}
+
+.process-connector {
+  width: 2px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
+/* ============================================
    FREE CONSULTATION
    ============================================ */
 

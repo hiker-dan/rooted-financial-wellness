@@ -43,21 +43,6 @@
   }
 }
 
-.section-subheading {
-  font-size: var(--text-lg);
-  line-height: var(--leading-relaxed);
-  color: var(--color-charcoal);
-  opacity: 0.8;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-subheading-light {
-  color: rgba(255, 255, 255, 0.85);
-  opacity: 1;
-}
-
 .hide-mobile {
   display: none;
 }
@@ -206,7 +191,7 @@
 }
 
 .hero-title .highlight {
-  color: var(--color-sage);
+  color: var(--color-purple);
   position: relative;
 }
 
@@ -217,7 +202,7 @@
   left: 0;
   right: 0;
   height: 8px;
-  background-color: rgba(157, 139, 166, 0.25);
+  background-color: rgba(157, 139, 166, 0.2);
   border-radius: 4px;
   z-index: -1;
 }
@@ -232,6 +217,7 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  text-wrap: balance;
 }
 
 /* Hero CTA */
@@ -383,6 +369,10 @@
   margin-bottom: 0;
 }
 
+.trust-strip-free {
+  color: var(--color-gold);
+}
+
 /* ============================================
    PHILOSOPHY SECTION
    ============================================ */
@@ -521,93 +511,6 @@
   color: var(--color-charcoal);
   opacity: 0.8;
   line-height: var(--leading-relaxed);
-}
-
-/* ============================================
-   HOW IT WORKS / PROCESS SECTION
-   ============================================ */
-
-.process-section {
-  background: linear-gradient(160deg, var(--color-sage) 0%, #6B9F7F 50%, var(--color-purple) 100%);
-  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
-  position: relative;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .process-section {
-    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
-  }
-}
-
-.process-header {
-  margin-bottom: var(--space-xl);
-}
-
-/* Steps */
-.process-steps {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.process-step {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  text-align: left;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-xl);
-  padding: var(--space-md) var(--space-lg);
-  width: 100%;
-  transition: all var(--transition-base);
-}
-
-.process-step:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
-}
-
-.step-number {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--color-white);
-  color: var(--color-sage);
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-bold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-md);
-}
-
-.step-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-white);
-  margin-bottom: var(--space-xs);
-}
-
-.step-description {
-  font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.85);
-  line-height: var(--leading-relaxed);
-}
-
-/* Connector between steps */
-.process-connector {
-  width: 2px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.3);
-  margin: 0;
 }
 
 /* ============================================
@@ -761,62 +664,91 @@
 }
 
 /* ============================================
-   QUOTE SECTION
+   "THIS MIGHT BE FOR YOU" / RESONANCE SECTION
    ============================================ */
 
-.quote-section {
+.resonance-section {
   background: linear-gradient(135deg, #ede5ef 0%, #e8ede5 100%);
   padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
   position: relative;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
-  .quote-section {
+  .resonance-section {
     padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
   }
 }
 
-.quote-content {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
+.resonance-header {
+  margin-bottom: var(--space-xl);
 }
 
-.quote-mark {
-  width: 48px;
-  height: 48px;
-  color: var(--color-sage);
-  opacity: 0.3;
-  margin-bottom: var(--space-md);
+.resonance-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
-  .quote-mark {
-    width: 64px;
-    height: 64px;
+  .resonance-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
   }
 }
 
-.featured-quote {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-semibold);
-  font-style: italic;
+.resonance-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-xl);
+  padding: var(--space-md);
+  transition: all var(--transition-base);
+}
+
+.resonance-item:hover {
+  background-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.resonance-icon-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(135, 168, 120, 0.15);
+  color: var(--color-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resonance-icon-wrap svg {
+  width: 20px;
+  height: 20px;
+}
+
+.resonance-icon-purple {
+  background-color: rgba(157, 139, 166, 0.15);
+  color: var(--color-purple);
+}
+
+.resonance-icon-gold {
+  background-color: rgba(212, 165, 116, 0.15);
+  color: var(--color-gold);
+}
+
+.resonance-text {
+  font-size: var(--text-base);
   color: var(--color-charcoal);
   line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-md);
-  border-left: none;
-  padding-left: 0;
+  margin: 0;
 }
-
-@media (min-width: 768px) {
-  .featured-quote {
-    font-size: var(--text-2xl);
-  }
-}
-
-/* (Credentials section moved to About page) */
 
 /* ============================================
    FINAL CTA SECTION
