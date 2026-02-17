@@ -149,29 +149,19 @@
   }
 }
 
-/* Photo placeholder */
-.about-photo-placeholder {
-  background-color: var(--color-cream);
+/* Portrait photo */
+.about-portrait {
+  width: 100%;
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  color: var(--color-charcoal);
-  opacity: 0.4;
+  object-fit: cover;
+  box-shadow: var(--shadow-lg);
 }
 
-.about-photo-placeholder svg {
-  width: 64px;
-  height: 64px;
-  margin-bottom: var(--space-sm);
-}
-
-.about-photo-placeholder span {
-  font-size: var(--text-sm);
-  font-weight: var(--font-weight-semibold);
+@media (min-width: 768px) {
+  .about-photo {
+    position: sticky;
+    top: calc(var(--space-xl) + 80px);
+  }
 }
 
 /* Story text */
