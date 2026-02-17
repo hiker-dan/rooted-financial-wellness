@@ -1,0 +1,306 @@
+/*
+ * Shared Page Styles — Rooted Financial Wellness
+ *
+ * Styles shared across all inner pages (about, services, approach, resources, contact).
+ * Includes: page hero, wave dividers, section headings, CTA section, button variants.
+ */
+
+/* ============================================
+   PAGE HERO
+   ============================================ */
+
+.page-hero {
+  background: linear-gradient(160deg, var(--color-cream) 0%, #e8ede5 40%, #ede5ef 100%);
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .page-hero {
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
+  }
+}
+
+/* Atmospheric blobs — matching homepage hero language */
+.page-hero::before,
+.page-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.page-hero::before {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(135, 168, 120, 0.06) 0%, transparent 70%);
+}
+
+.page-hero::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(157, 139, 166, 0.05) 0%, transparent 70%);
+}
+
+@media (min-width: 768px) {
+  .page-hero::before {
+    width: 800px;
+    height: 800px;
+    top: -300px;
+    right: -200px;
+  }
+
+  .page-hero::after {
+    width: 700px;
+    height: 700px;
+    bottom: -250px;
+    left: -150px;
+  }
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-sage);
+  background-color: rgba(135, 168, 120, 0.15);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-md);
+}
+
+.page-hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-charcoal);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-md);
+}
+
+.page-hero-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-charcoal);
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   WAVE DIVIDERS
+   ============================================ */
+
+.wave-divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+
+@media (min-width: 768px) {
+  .wave-divider svg {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wave-divider svg {
+    height: 120px;
+  }
+}
+
+.wave-divider-bottom {
+  bottom: 0;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: inline;
+  }
+}
+
+/* ============================================
+   SECTION HEADINGS
+   ============================================ */
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-sage);
+  margin-bottom: var(--space-sm);
+}
+
+.section-label-light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-charcoal);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-md);
+}
+
+.section-heading-light {
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: var(--text-3xl);
+  }
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+
+.cta-section {
+  background: linear-gradient(160deg, var(--color-sage) 0%, var(--color-purple) 100%);
+  padding: var(--space-xl) 0;
+  color: var(--color-white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+}
+
+.cta-section::before {
+  width: 400px;
+  height: 400px;
+  top: -200px;
+  right: -100px;
+}
+
+.cta-section::after {
+  width: 300px;
+  height: 300px;
+  bottom: -150px;
+  left: -50px;
+}
+
+@media (min-width: 768px) {
+  .cta-section {
+    padding: var(--space-2xl) 0;
+  }
+}
+
+.cta-content {
+  max-width: var(--container-md);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .cta-title {
+    font-size: var(--text-3xl);
+  }
+}
+
+.cta-description {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-lg);
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .cta-buttons {
+    flex-direction: row;
+  }
+}
+
+.cta-buttons .btn {
+  min-width: 200px;
+}
+
+/* ============================================
+   BUTTON VARIANTS (CTA-specific)
+   ============================================ */
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-sage);
+  border-color: var(--color-white);
+}
+
+.btn-white:hover {
+  background-color: var(--color-cream);
+  border-color: var(--color-cream);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-sage);
+  transform: translateY(-2px);
+}
