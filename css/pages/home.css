@@ -272,7 +272,6 @@
   flex-direction: column;
   gap: var(--space-sm);
   align-items: center;
-  margin-bottom: var(--space-md);
 }
 
 @media (min-width: 640px) {
@@ -292,36 +291,7 @@
   min-width: 200px;
 }
 
-/* Trust Line */
-.hero-trust-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-xs);
-  font-size: var(--text-sm);
-  color: var(--color-charcoal);
-  opacity: 0.6;
-}
-
-@media (min-width: 1024px) {
-  .hero-trust-line {
-    justify-content: flex-start;
-  }
-}
-
-.trust-dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-sage);
-}
-
-.trust-divider {
-  color: var(--color-charcoal);
-  opacity: 0.3;
-}
+/* (Trust line removed) */
 
 /* ============================================
    HERO VISUAL (Floating cards + plant illustration)
@@ -330,7 +300,7 @@
 .hero-visual {
   position: relative;
   display: none;
-  min-height: 400px;
+  min-height: 450px;
 }
 
 @media (min-width: 1024px) {
@@ -339,7 +309,18 @@
   }
 }
 
-/* Floating cards */
+/* Tree SVG */
+.hero-tree {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  z-index: 1;
+}
+
+/* Floating cards as roots */
 .hero-card {
   position: absolute;
   background: var(--color-white);
@@ -352,8 +333,10 @@
   font-size: var(--text-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-charcoal);
-  animation: float 6s ease-in-out infinite;
+  animation: rootFloat 6s ease-in-out infinite;
   z-index: 2;
+  border-top: none;
+  border-left: none;
 }
 
 .hero-card-icon {
@@ -362,54 +345,57 @@
   flex-shrink: 0;
 }
 
+/* Card 1: Emotion-First - left root */
 .hero-card-1 {
-  top: 10%;
-  right: 5%;
+  bottom: 22%;
+  left: -5%;
   animation-delay: 0s;
-  border-left: 3px solid var(--color-sage);
+  border-bottom: 3px solid var(--color-sage);
 }
 
 .hero-card-1 .hero-card-icon {
   color: var(--color-sage);
 }
 
+/* Card 2: Your Budget, Your Values - center root */
 .hero-card-2 {
-  top: 40%;
-  left: 0;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
   animation-delay: -2s;
-  border-left: 3px solid var(--color-purple);
+  border-bottom: 3px solid var(--color-gold);
 }
 
 .hero-card-2 .hero-card-icon {
-  color: var(--color-purple);
-}
-
-.hero-card-3 {
-  bottom: 15%;
-  right: 15%;
-  animation-delay: -4s;
-  border-left: 3px solid var(--color-gold);
-}
-
-.hero-card-3 .hero-card-icon {
   color: var(--color-gold);
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+/* Card 3: Safe & Judgment-Free - right root */
+.hero-card-3 {
+  bottom: 22%;
+  right: -5%;
+  animation-delay: -4s;
+  border-bottom: 3px solid var(--color-purple);
 }
 
-/* Plant illustration */
-.hero-plant {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 160px;
-  opacity: 0.6;
-  z-index: 1;
+.hero-card-3 .hero-card-icon {
+  color: var(--color-purple);
+}
+
+@keyframes rootFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Override transform for centered card */
+.hero-card-2 {
+  animation: rootFloatCenter 6s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+@keyframes rootFloatCenter {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-8px); }
 }
 
 /* ============================================
@@ -509,7 +495,7 @@
 }
 
 .pillar-card:nth-child(2)::before {
-  background-color: var(--color-purple);
+  background-color: var(--color-gold);
 }
 
 .pillar-icon-gold {
@@ -518,7 +504,23 @@
 }
 
 .pillar-card:nth-child(3)::before {
-  background-color: var(--color-gold);
+  background-color: var(--color-purple);
+}
+
+/* Featured pillar (center, most important) */
+.pillar-card-featured {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 768px) {
+  .pillar-card-featured {
+    transform: scale(1.05);
+  }
+
+  .pillar-card-featured:hover {
+    transform: scale(1.05) translateY(-6px);
+  }
 }
 
 .pillar-card-title {
@@ -779,13 +781,13 @@
 
 .quote-section {
   background: linear-gradient(135deg, #ede5ef 0%, #e8ede5 100%);
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
   position: relative;
 }
 
 @media (min-width: 768px) {
   .quote-section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
   }
 }
 
@@ -829,115 +831,7 @@
   }
 }
 
-.quote-attribution {
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  font-style: normal;
-  color: var(--color-sage);
-  font-weight: var(--font-weight-semibold);
-}
-
-/* ============================================
-   TRUST / CREDENTIALS SECTION
-   ============================================ */
-
-.trust-section {
-  background-color: var(--color-white);
-  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
-  position: relative;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .trust-section {
-    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
-  }
-}
-
-.trust-header {
-  margin-bottom: var(--space-xl);
-}
-
-/* Credentials Grid */
-.credentials-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-md);
-}
-
-@media (min-width: 640px) {
-  .credentials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .credentials-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Credential Cards */
-.credential-card {
-  background-color: var(--color-cream);
-  border-radius: var(--radius-xl);
-  padding: var(--space-lg);
-  text-align: center;
-  transition: all var(--transition-base);
-}
-
-.credential-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  background-color: var(--color-white);
-}
-
-.credential-icon-wrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto var(--space-md);
-  background-color: rgba(135, 168, 120, 0.15);
-  color: var(--color-sage);
-}
-
-.credential-icon-wrap svg {
-  width: 24px;
-  height: 24px;
-}
-
-.credential-icon-purple {
-  background-color: rgba(157, 139, 166, 0.15);
-  color: var(--color-purple);
-}
-
-.credential-icon-gold {
-  background-color: rgba(212, 165, 116, 0.15);
-  color: var(--color-gold);
-}
-
-.credential-icon-sage {
-  background-color: rgba(135, 168, 120, 0.15);
-  color: var(--color-sage);
-}
-
-.credential-card-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-charcoal);
-  margin-bottom: var(--space-sm);
-}
-
-.credential-card-description {
-  font-size: var(--text-sm);
-  color: var(--color-charcoal);
-  opacity: 0.75;
-  line-height: var(--leading-relaxed);
-}
+/* (Credentials section moved to About page) */
 
 /* ============================================
    FINAL CTA SECTION
