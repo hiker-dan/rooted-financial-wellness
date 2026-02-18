@@ -144,6 +144,105 @@
   opacity: 0.3;
 }
 
+/* Wave divider variant for white-bg sections */
+.approach-section-wave {
+  position: relative;
+  padding-bottom: calc(var(--space-xl) + 60px);
+}
+
+@media (min-width: 768px) {
+  .approach-section-wave {
+    padding-bottom: calc(var(--space-2xl) + 100px);
+  }
+}
+
+/* ============================================
+   YNAB ACCESS SECTION
+   ============================================ */
+
+.approach-icon-purple {
+  background-color: rgba(157, 139, 166, 0.15);
+  color: var(--color-purple);
+}
+
+/* Tier-by-tier YNAB access grid */
+.ynab-access-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  max-width: 900px;
+  margin: var(--space-xl) auto 0;
+}
+
+@media (min-width: 768px) {
+  .ynab-access-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+.ynab-access-item {
+  background-color: var(--color-cream);
+  border-radius: var(--radius-xl);
+  padding: var(--space-md);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.ynab-access-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.ynab-access-tier {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-xs);
+}
+
+.ynab-access-emoji {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.ynab-access-detail {
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  opacity: 0.85;
+  line-height: var(--leading-relaxed);
+  margin-bottom: 0;
+}
+
+/* Transparency note */
+.ynab-transparency {
+  max-width: 700px;
+  margin: var(--space-xl) auto 0;
+  text-align: center;
+}
+
+.ynab-note {
+  font-size: var(--text-base);
+  color: var(--color-charcoal);
+  line-height: var(--leading-relaxed);
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-gold);
+  text-align: left;
+  margin-bottom: var(--space-md);
+}
+
+.ynab-disclaimer {
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  opacity: 0.6;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
 /* ============================================
    PRIORITY FRAMEWORK SECTION
    ============================================ */
