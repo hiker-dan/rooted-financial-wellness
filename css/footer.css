@@ -56,12 +56,16 @@
 }
 
 .footer-logo {
-  font-family: var(--font-heading);
-  font-size: var(--text-xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-sage);
-  display: inline-block;
+  display: block;
   margin-bottom: var(--space-sm);
+}
+
+.footer-logo-icon {
+  height: 100px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
 }
 
 .footer-tagline {

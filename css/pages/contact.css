@@ -41,7 +41,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-sm);
   max-width: 860px;
-  margin: 0 auto var(--space-lg);
+  margin: var(--space-lg) auto 0;
 }
 
 @media (min-width: 768px) {

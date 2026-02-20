@@ -26,14 +26,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: var(--space-sm);
-  padding-bottom: var(--space-sm);
+  padding-top: 4px;   /* ← top/bottom header padding — increase to add more breathing room */
+  padding-bottom: 4px;
 }
 
 @media (min-width: 768px) {
   .header-container {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 
@@ -42,47 +42,33 @@
    ============================================ */
 
 .site-logo {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-charcoal);
   text-decoration: none;
   display: flex;
-  flex-direction: column;
-  gap: 0;
-  line-height: 1.2;
-  transition: color var(--transition-fast);
+  align-items: center;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
 }
 
 .site-logo:hover {
-  color: var(--color-sage);
+  opacity: 0.8;
   text-decoration: none;
 }
 
-.logo-main {
-  font-size: var(--text-xl);
-  color: var(--color-sage);
-}
-
-.logo-sub {
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  font-weight: var(--font-weight-normal);
-  color: var(--color-charcoal);
-  opacity: 0.7;
+/*
+ * LOGO SIZE — adjust these two values to resize the header logo:
+ *
+ *   Mobile  → change the height inside .logo-img below
+ *   Desktop → change the height inside the @media (min-width: 768px) block
+ */
+.logo-img {
+  height: 140px;  /* ← mobile size: change this number */
+  width: auto;
+  display: block;
 }
 
 @media (min-width: 768px) {
-  .site-logo {
-    font-size: var(--text-xl);
-  }
-
-  .logo-main {
-    font-size: var(--text-2xl);
-  }
-
-  .logo-sub {
-    font-size: var(--text-sm);
+  .logo-img {
+    height: 220px;  /* ← desktop size: change this number */
   }
 }
 
@@ -98,14 +84,16 @@
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-xs);
   }
 }
 
 .nav-menu ul {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: var(--space-md);
+  row-gap: 15px;
+  justify-content: end;
   list-style: none;
   margin: 0;
   padding: 0;
