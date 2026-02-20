@@ -35,17 +35,17 @@
 }
 
 /*
- * Primary button (warm gold - main CTAs)
+ * Primary button (sage - nature-rooted CTAs)
  */
 .btn-primary {
-  background-color: var(--color-gold);
+  background-color: var(--color-sage);
   color: var(--color-white);
-  border-color: var(--color-gold);
+  border-color: var(--color-sage);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-gold-dark);
-  border-color: var(--color-gold-dark);
+  background-color: var(--color-sage-dark);
+  border-color: var(--color-sage-dark);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -55,16 +55,16 @@
 }
 
 /*
- * Secondary button (sage outline)
+ * Secondary button (purple outline)
  */
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-sage);
-  border-color: var(--color-sage);
+  color: var(--color-purple);
+  border-color: var(--color-purple);
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-sage);
+  background-color: var(--color-purple);
   color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);

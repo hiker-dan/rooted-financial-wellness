@@ -40,12 +40,13 @@ html {
 
 .scale-philosophy {
   background-color: var(--color-white);
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .scale-philosophy {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
   }
 }
 
@@ -362,6 +363,18 @@ html {
   border-bottom: 1px solid rgba(58, 58, 58, 0.1);
 }
 
+/* Payment plan note (inline in card) */
+.tier-payment-note {
+  display: inline-block;
+  font-size: var(--text-xs);
+  color: var(--color-sage-dark);
+  background-color: rgba(135, 168, 120, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-md);
+  font-weight: var(--font-weight-semibold);
+}
+
 /* Tier includes list */
 .tier-includes {
   list-style: none;
@@ -616,7 +629,7 @@ thead .comparison-popular {
 }
 
 .community-card-pricing {
-  text-align: left;
+  text-align: center;
 }
 
 .community-card-pricing .tier-time {
@@ -812,13 +825,14 @@ thead .comparison-popular {
 
 .how-it-works-section {
   background-color: var(--color-white);
-  padding: var(--space-xl) 0;
+  padding: var(--space-xl) 0 calc(var(--space-xl) + 60px) 0;
   text-align: center;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .how-it-works-section {
-    padding: var(--space-2xl) 0;
+    padding: var(--space-2xl) 0 calc(var(--space-2xl) + 100px) 0;
   }
 }
 

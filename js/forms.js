@@ -1,23 +1,64 @@
 /*
  * Contact Form Handling
  *
- * Client-side validation and Formspree integration.
+ * Tab switching, client-side validation, and Formspree integration.
  * Validates required fields, shows error messages,
  * and handles form submission with loading/success/error states.
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  var form = document.getElementById('contact-form');
+
+  /* ============================================
+     TAB SWITCHER
+     ============================================ */
+  var tabs = document.querySelectorAll('.form-tab');
+  var panels = document.querySelectorAll('.tab-panel');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var targetId = tab.getAttribute('aria-controls');
+
+      // Deactivate all tabs and panels
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(function(p) {
+        p.classList.remove('active');
+      });
+
+      // Activate clicked tab and its panel
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      var targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+  });
+
+  /* ============================================
+     FORM HANDLING (General + Workshop)
+     ============================================ */
+  initForm('contact-form', 'submit-btn', 'form-status');
+  initForm('workshop-form', 'ws-submit-btn', 'ws-form-status');
+});
+
+function initForm(formId, btnId, statusId) {
+  var form = document.getElementById(formId);
   if (!form) return;
 
-  var submitBtn = document.getElementById('submit-btn');
-  var formStatus = document.getElementById('form-status');
+  var submitBtn = document.getElementById(btnId);
+  var formStatus = document.getElementById(statusId);
+  var originalBtnText = submitBtn ? submitBtn.textContent : 'Send';
 
   form.addEventListener('submit', function(event) {
     // Clear previous status
-    formStatus.className = 'form-status';
-    formStatus.style.display = 'none';
-    formStatus.textContent = '';
+    if (formStatus) {
+      formStatus.className = 'form-status';
+      formStatus.style.display = 'none';
+      formStatus.textContent = '';
+    }
 
     // Validate
     var isValid = validateForm(form);
@@ -26,14 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // If using Formspree, let the form submit naturally
-    // For AJAX submission (better UX), uncomment below:
-
     event.preventDefault();
 
     // Show loading state
-    submitBtn.classList.add('loading');
-    submitBtn.textContent = 'Sending...';
+    if (submitBtn) {
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'Sending...';
+    }
 
     // Submit via fetch
     var formData = new FormData(form);
@@ -46,27 +86,37 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     })
     .then(function(response) {
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = 'Send Message';
+      if (submitBtn) {
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = originalBtnText;
+      }
 
       if (response.ok) {
-        formStatus.className = 'form-status success';
-        formStatus.style.display = 'block';
-        formStatus.textContent = 'Thank you! Your message has been sent. I\'ll get back to you within 1-2 business days.';
+        if (formStatus) {
+          formStatus.className = 'form-status success';
+          formStatus.style.display = 'block';
+          formStatus.textContent = 'Thank you! Your message has been sent. I\'ll get back to you within 1-2 business days.';
+        }
         form.reset();
         clearErrors(form);
       } else {
+        if (formStatus) {
+          formStatus.className = 'form-status error';
+          formStatus.style.display = 'block';
+          formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
+        }
+      }
+    })
+    .catch(function() {
+      if (submitBtn) {
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = originalBtnText;
+      }
+      if (formStatus) {
         formStatus.className = 'form-status error';
         formStatus.style.display = 'block';
         formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
       }
-    })
-    .catch(function() {
-      submitBtn.classList.remove('loading');
-      submitBtn.textContent = 'Send Message';
-      formStatus.className = 'form-status error';
-      formStatus.style.display = 'block';
-      formStatus.textContent = 'Something went wrong. Please try again or email me directly.';
     });
   });
 
@@ -89,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-});
+}
 
 function validateForm(form) {
   var isValid = true;

@@ -559,7 +559,7 @@
 .service-preview-card {
   background-color: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   text-align: left;
   transition: all var(--transition-base);
   display: flex;
@@ -618,10 +618,16 @@
 
 .service-preview-title {
   font-family: var(--font-heading);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: var(--font-weight-bold);
   color: var(--color-charcoal);
   margin-bottom: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .service-preview-title {
+    font-size: 1.25rem;
+  }
 }
 
 .service-preview-description {
