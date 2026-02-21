@@ -51,7 +51,7 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="approach.html">My Approach</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="contact.html" class="active">Get Started</a></li>
           </ul>
         </nav>
       </div>
@@ -70,11 +70,11 @@
         <span class="page-hero-label animate-on-scroll">Get Started</span>
 
         <!-- EDIT: Change the main headline here -->
-        <h1 class="page-hero-title animate-on-scroll">Book a Session or<br class="hide-mobile"> Say Hello</h1>
+        <h1 class="page-hero-title animate-on-scroll">Book a Session </h1>
 
         <!-- EDIT: Change the subtitle here -->
         <p class="page-hero-subtitle animate-on-scroll">
-          Pick a time that works for you, or send a message &mdash; I'll get back to you within 1&ndash;2 business days.
+          Let's start working together! Use the scheduler below to pick a time that works for you. We can always start with a free Discovery Call.
         </p>
       </div>
       <div class="wave-divider wave-divider-bottom" aria-hidden="true">
@@ -156,120 +156,43 @@
     </section>
 
     <!-- ==========================================
-         MESSAGE SECTION (Two-Tab Form)
+         REACH OUT SECTION
          ========================================== -->
-    <section class="message-section">
+    <section class="reach-out-section">
       <div class="container">
-        <div class="message-header animate-on-scroll">
-          <span class="section-label">Send a Message</span>
-          <h2 class="section-heading">Prefer to Write?</h2>
-          <p class="message-subtitle">Have a question, or interested in a workshop for your organization? Fill out the form below and I'll get back to you within 1&ndash;2 business days.</p>
+
+        <!-- EDIT: Change section header text -->
+        <div class="reach-out-header animate-on-scroll">
+          <span class="section-label">Direct Contact</span>
+          <h2 class="section-heading">Prefer to Email?</h2>
+          <p class="reach-out-intro">
+            Have a question or want to explore working together? Reach out directly and I'll get back to you within 1&ndash;2 business days.
+          </p>
         </div>
 
-        <div class="message-form-wrap animate-on-scroll">
-          <!-- Tab Switcher -->
-          <div class="form-tabs" role="tablist" aria-label="Contact form type">
-            <button class="form-tab active" role="tab" aria-selected="true" aria-controls="tab-general" id="tab-btn-general">General Question</button>
-            <button class="form-tab" role="tab" aria-selected="false" aria-controls="tab-workshop" id="tab-btn-workshop">Workshop Inquiry</button>
+        <!-- EDIT: Update guidance entries -->
+        <div class="reach-out-guidance animate-on-scroll">
+
+          <div class="guidance-entry">
+            <!-- EDIT: Change guidance title and description -->
+            <h3 class="guidance-title">General Inquiries</h3>
+            <p class="guidance-desc">Any questions the website didn't answer? Feel free to reach out with any further questions directly. Want to get started? Book a Discovery Call above!</p>
           </div>
 
-          <!-- General Question Form -->
-          <div class="tab-panel active" id="tab-general" role="tabpanel" aria-labelledby="tab-btn-general">
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name" class="required">Name</label>
-                  <input type="text" id="name" name="name" placeholder="Your full name" required>
-                  <span class="error-message" aria-live="polite"></span>
-                </div>
-                <div class="form-group">
-                  <label for="email" class="required">Email</label>
-                  <input type="email" id="email" name="email" placeholder="your@email.com" required>
-                  <span class="error-message" aria-live="polite"></span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject">
-                  <option value="" disabled selected>What are you interested in?</option>
-                  <option value="Free consultation">Free 30-minute consultation</option>
-                  <option value="1-on-1 coaching">1-on-1 budget coaching</option>
-                  <option value="General question">General question</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message" class="required">Message</label>
-                <textarea id="message" name="message" placeholder="Tell me a bit about what you're looking for..." rows="5" required></textarea>
-                <span class="error-message" aria-live="polite"></span>
-              </div>
-
-              <!-- Honeypot for spam prevention -->
-              <input type="text" name="_gotcha" style="display:none">
-
-              <button type="submit" class="btn btn-primary btn-lg" id="submit-btn">
-                Send Message
-              </button>
-
-              <div id="form-status" class="form-status" aria-live="polite"></div>
-            </form>
+          <div class="guidance-entry">
+            <!-- EDIT: Change workshop guidance title and description -->
+            <h3 class="guidance-title">Workshop Inquiries</h3>
+            <p class="guidance-desc">Include your organization's name, the type of audience, an estimated group size, and any dates you have in mind. The more context you share, the better I can tailor a proposal.</p>
           </div>
 
-          <!-- Workshop Inquiry Form -->
-          <div class="tab-panel" id="tab-workshop" role="tabpanel" aria-labelledby="tab-btn-workshop">
-            <form id="workshop-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="ws-name" class="required">Your Name</label>
-                  <input type="text" id="ws-name" name="name" placeholder="Your full name" required>
-                  <span class="error-message" aria-live="polite"></span>
-                </div>
-                <div class="form-group">
-                  <label for="ws-email" class="required">Email</label>
-                  <input type="email" id="ws-email" name="email" placeholder="your@email.com" required>
-                  <span class="error-message" aria-live="polite"></span>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="ws-org" class="required">Organization</label>
-                  <input type="text" id="ws-org" name="organization" placeholder="College, nonprofit, or company name" required>
-                  <span class="error-message" aria-live="polite"></span>
-                </div>
-                <div class="form-group">
-                  <label for="ws-size">Estimated Group Size</label>
-                  <select id="ws-size" name="group_size">
-                    <option value="" disabled selected>Select a range</option>
-                    <option value="1-10">1 &ndash; 10</option>
-                    <option value="11-25">11 &ndash; 25</option>
-                    <option value="26-50">26 &ndash; 50</option>
-                    <option value="50+">50+</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="ws-message" class="required">Tell Me About Your Event</label>
-                <textarea id="ws-message" name="message" placeholder="What topics are you interested in? Any specific dates, audience details, or goals?" rows="5" required></textarea>
-                <span class="error-message" aria-live="polite"></span>
-              </div>
-
-              <!-- Hidden field to identify workshop inquiries -->
-              <input type="hidden" name="subject" value="Workshop Inquiry">
-              <!-- Honeypot -->
-              <input type="text" name="_gotcha" style="display:none">
-
-              <button type="submit" class="btn btn-primary btn-lg" id="ws-submit-btn">
-                Send Workshop Inquiry
-              </button>
-
-              <div id="ws-form-status" class="form-status" aria-live="polite"></div>
-            </form>
-          </div>
         </div>
+
+        <!-- EDIT: Change email address -->
+        <div class="reach-out-cta animate-on-scroll">
+          <a href="mailto:daniel.soteloreiner@gmail.com" class="btn btn-primary btn-lg">Email Me Directly</a>
+          <p class="reach-out-address">daniel.soteloreiner@gmail.com</p>
+        </div>
+
       </div>
     </section>
 
@@ -330,7 +253,7 @@
             <li><a href="services.html">Services</a></li>
             <li><a href="approach.html">My Approach</a></li>
             <li><a href="resources.html">Resources</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Get Started</a></li>
           </ul>
         </div>
         <div class="footer-section">
@@ -353,6 +276,5 @@
 
   <script src="js/navigation.js"></script>
   <script src="js/animations.js"></script>
-  <script src="js/forms.js"></script>
 </body>
 </html>
